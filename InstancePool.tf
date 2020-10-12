@@ -17,5 +17,5 @@ resource "exoscale_instance_pool" "instancepool" {
   disk_size    = 10
   key_pair     = exoscale_ssh_keypair.rsa_ida.name
   security_group_ids = [exoscale_security_group.sg.id]
-  user_data = file("./UserData/nginx.sh")
+  user_data = file("./UserData/loadGenerator.sh")
 }
