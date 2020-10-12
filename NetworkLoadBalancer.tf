@@ -10,10 +10,10 @@ resource "exoscale_nlb_service" "network_load_balancer" {
   description      = "Website over HTTP"
   nlb_id           = exoscale_nlb.network_load_balancer.id
   instance_pool_id = exoscale_instance_pool.instancepool.id
-    protocol       = "tcp"
-    port           = 80
-    target_port    = 8080
-    strategy       = "round-robin"
+  protocol       = "tcp"
+  port           = 80
+  target_port    = 8080
+  strategy       = "round-robin"
 
   healthcheck {
     mode     = "http"

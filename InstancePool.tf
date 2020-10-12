@@ -15,15 +15,7 @@ resource "exoscale_instance_pool" "instancepool" {
   service_offering = "micro"
   size         = 2
   disk_size    = 10
-  key_pair     = ""
-
-  #affinity_groups = []
-  #security_groups = [exoscale_security_group.sg.name]
-
-  user_data = <<EOF
-#!/bin/bash
-set -e
-apt update
-apt install -y nginx
-EOF
+  key_pair     = exoscale_ssh_keypair.rsa_ida.name
+  security_group_ids = [exoscale_security_group.sg.id]
+  user_data = file("./UserData/nginx.sh")
 }
