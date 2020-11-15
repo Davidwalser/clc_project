@@ -1,0 +1,4 @@
+github.com/exoscale/egoscale v1.19.0 h1:DbSyyzaPyxDBgGOuduCU26rQ4PJb/GP+8srXRabRf5U=
+github.com/exoscale/egoscale v1.19.0/go.mod h1:Z7OOdzzTOz1Q1PjQXumlz9Wn/CddH0zSYdCF3rnBKXE=
+github.com/gofrs/uuid v3.2.0+incompatible h1:y12jRkkFxsd7GpqdSZ+/KCs/fJbqpEXSGd4+jfEaewE=
+github.com/gofrs/uuid v3.2.0+incompatible/go.mod h1:b2aQJv3Z4Fp6yNu3cdSllBxTCLRxnplIgP/c0N/04lM=

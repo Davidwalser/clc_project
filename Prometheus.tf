@@ -1,6 +1,6 @@
 
 resource "exoscale_compute" "mymachine" {
-  zone         = "at-vie-1"
+  zone         = var.zone
   display_name = "prometheus"
   template_id  = data.exoscale_compute_template.ubuntu.id
   size         = "Micro"
