@@ -18,6 +18,12 @@ def writeIpsIntoConfig(directory, filename, jsonData):
     with open(fullpath, 'w') as outfile:
         json.dump(jsonData, outfile)
 
+def getInstances(exo, zone, poolId):
+    try:
+        return exo.compute.get_instance_pool(poolId,zone).instances
+    except:
+        return []
+
 exoscale_key = os.getenv('EXOSCALE_KEY')
 exoscale_secret = os.getenv('EXOSCALE_SECRET')
 exoscale_zone = os.getenv('EXOSCALE_ZONE')
@@ -26,19 +32,14 @@ target_port = os.getenv('TARGET_PORT')
 
 exo = exoscale.Exoscale(api_key=exoscale_key, api_secret=exoscale_secret) 
 
-try:
-  zone = exo.compute.get_zone(id=exoscale_zone)
-except:
-  print("Error getting zone", flush=True)
+print("exoscale_zone (should be zone): "+ exoscale_zone, flush=True)
+zone = exo.compute.get_zone(name=exoscale_zone)
 
 while True:
-    try:
-        vms = exo.compute.get_instance_pool(exoscale_instancepool_id,zone).instances
-    except:
-        print("Error getting instances", flush=True)
-
+    vms = getInstances(exo,zone,exoscale_instancepool_id)
     ips = []
     for vm in vms:
+        print(vm.ipv4_address, flush=True)
         ips.append(vm.ipv4_address + ":" + target_port)
 
     # need array to get right format

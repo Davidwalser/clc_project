@@ -31,4 +31,4 @@ docker run \
 
 # docker run -d -v SharedDir:/var/run/prometheus-sd-exoscale-instance-pools janoszen/prometheus-sd-exoscale-instance-pools --exoscale-api-key ${exoscale_key} --exoscale-api-secret ${exoscale_secret} --exoscale-zone-id 4da1b188-dcd6-4ff5-b7fd-bde984055548 --instance-pool-id ${exoscale_instancepool_id} --prometheus-port 9100
 
-docker run -d -v SharedDir:/srv/service-discovery -e EXOSCALE_KEY=${exoscale_key} -e EXOSCALE_SECRET=${exoscale_secret} -e EXOSCALE_ZONE="4da1b188-dcd6-4ff5-b7fd-bde984055548" -e EXOSCALE_INSTANCEPOOL_ID=${exoscale_instancepool_id} -e TARGET_PORT="9100" davidwalser/servicediscovery
+docker run -d -v SharedDir:/srv/service-discovery -e EXOSCALE_KEY=${exoscale_key} -e EXOSCALE_SECRET=${exoscale_secret} -e EXOSCALE_ZONE=${exoscale_zone} -e EXOSCALE_INSTANCEPOOL_ID=${exoscale_instancepool_id} -e TARGET_PORT="9100" davidwalser/servicediscovery
