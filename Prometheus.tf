@@ -10,7 +10,6 @@ resource "exoscale_compute" "mymachine" {
   affinity_groups = []
   security_groups = [exoscale_security_group.sg.name]
 
-  #user_data = file("./UserData/prometheus.sh")
   user_data = templatefile("UserData/prometheus.sh", {
         exoscale_key = var.exoscale_key,
         exoscale_secret = var.exoscale_secret,
