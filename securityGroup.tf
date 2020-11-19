@@ -1,7 +1,8 @@
 resource "exoscale_security_group" "sg" {
   name = "security_group"
 }
-resource "exoscale_security_group_rule" "http" {
+
+resource "exoscale_security_group_rule" "sgr_http" {
   security_group_id = exoscale_security_group.sg.id
   type = "INGRESS"
   protocol = "tcp"
@@ -10,7 +11,7 @@ resource "exoscale_security_group_rule" "http" {
   end_port = 80
 }
 
-resource "exoscale_security_group_rule" "nlb" {
+resource "exoscale_security_group_rule" "sgr_nlb" {
   security_group_id = exoscale_security_group.sg.id
   type = "INGRESS"
   protocol = "tcp"
@@ -37,7 +38,7 @@ resource "exoscale_security_group_rule" "sgr_nodeExporter" {
   end_port = 9100
 }
 
-resource "exoscale_security_group_rule" "ssh" {
+resource "exoscale_security_group_rule" "sgr_ssh" {
   security_group_id = exoscale_security_group.sg.id
   type = "INGRESS"
   protocol = "tcp"
